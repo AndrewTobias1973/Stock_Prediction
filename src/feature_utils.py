@@ -82,9 +82,14 @@ def get_bitcoin_historical_prices(days = 60):
     }
     response = requests.get(BASE_URL, params=params)
     data = response.json()
-    prices = data['prices']
+
+    if "prices" not in data:
+        raise ValueError(f"API response error: {data}")
+
+    prices = data["prices"]
     df = pd.DataFrame(prices, columns=['Timestamp', 'Close Price (USD)'])
     df['Date'] = pd.to_datetime(df['Timestamp'], unit='ms').dt.normalize()
     df = df[['Date', 'Close Price (USD)']].set_index('Date')
     return df
+
 
