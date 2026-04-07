@@ -59,7 +59,7 @@ MODEL_INFO = {
         "endpoint": aws_endpoint,
         "explainer": 'explainer_pca.shap',
         "pipeline": 'finalized_model.tar.gz',
-        "keys": ["AOS_CR_Cum","AFL_CR_Cum],
+        "keys": ["AOS_CR_Cum","AFL_CR_Cum"],
         "inputs": [{"name": k, "type": "number", "min": 0.0, "default": 100.0, "step": 10.0} for k in ["MSFT"]]
 }
 
