@@ -13,6 +13,7 @@ import boto3
 import sagemaker
 from sagemaker.predictor import Predictor
 from sagemaker.serializers import CSVSerializer
+from sagemaker.deserializers import JSONSerializer
 from sagemaker.deserializers import JSONDeserializer
 from sagemaker.serializers import NumpySerializer
 from sagemaker.deserializers import NumpyDeserializer
@@ -96,7 +97,7 @@ def call_model_api(input_df):
     predictor = Predictor(
         endpoint_name=MODEL_INFO["endpoint"],
         sagemaker_session=sm_session,
-        serializer=NumpySerializer(),
+        serializer=JSONSerializer(),
         deserializer=NumpyDeserializer() 
     )
 
