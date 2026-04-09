@@ -60,7 +60,7 @@ MODEL_INFO = {
         "explainer": 'explainer_pca.shap',
         "pipeline": 'finalized_model.tar.gz',
         "keys": ["AOS_CR_Cum","AFL_CR_Cum"],
-        "inputs": [{"name": k, "type": "number", "min": 0.0, "default": 100.0, "step": 10.0} for k in ["MSFT"]]
+        "inputs": [{"name": k, "type": "number", "min": 0.0, "default": 100.0, "step": 10.0} for k in ["AMD"]]
 }
 
 def load_pipeline(_session, bucket, key):
