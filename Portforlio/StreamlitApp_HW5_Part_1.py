@@ -13,7 +13,7 @@ import boto3
 import sagemaker
 from sagemaker.predictor import Predictor
 from sagemaker.serializers import CSVSerializer
-from sagemaker.deserializers import JSONSerializer
+from sagemaker.serializers import JSONSerializer
 from sagemaker.deserializers import JSONDeserializer
 from sagemaker.serializers import NumpySerializer
 from sagemaker.deserializers import NumpyDeserializer
