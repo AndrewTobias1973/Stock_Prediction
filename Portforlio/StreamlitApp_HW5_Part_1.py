@@ -113,7 +113,7 @@ def display_explanation(input_df, session, aws_bucket):
     explainer = load_shap_explainer(session, aws_bucket, posixpath.join('explainer', explainer_name),os.path.join(tempfile.gettempdir(), explainer_name))
 
     dataset = pd.read_csv(r'./SP500Data.csv',index_col=0)
-    random = 'MSFT'
+    random = 'AMD'
     random_price = json.loads(request_body)[random]
     closest_date = (dataset[random] - float(random_price)).abs().idxmin()
 
