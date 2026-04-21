@@ -40,12 +40,6 @@ except Exception as e:
     st.warning(f"SHAP not available: {e}")
     SHAP_AVAILABLE = False
 
-try:
-    from src.feature_utils import extract_features
-    FEATURES_AVAILABLE = True
-except Exception as e:
-    st.warning(f"Could not import feature_utils: {e}")
-    FEATURES_AVAILABLE = False
 
 # ── Secrets ───────────────────────────────────────────────────────────────────
 try:
@@ -81,15 +75,6 @@ if AWS_AVAILABLE and SECRETS_OK:
         st.error(f"AWS session failed: {e}")
         AWS_AVAILABLE = False
 
-# ── Features ──────────────────────────────────────────────────────────────────
-@st.cache_data
-def get_features():
-    try:
-        return extract_features()
-    except Exception as e:
-        return pd.DataFrame()
-
-df_features = get_features() if FEATURES_AVAILABLE else pd.DataFrame()
 
 # ── Model config ──────────────────────────────────────────────────────────────
 MODEL_INFO = {
