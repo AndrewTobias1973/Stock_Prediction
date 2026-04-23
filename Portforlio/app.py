@@ -27,7 +27,7 @@ if project_root not in sys.path:
 
 # Load X_train baseline from Portfolio folder (uploaded to GitHub)
 file_path = os.path.join(project_root, 'Portforlio/X_train.csv')
-dataset = pd.read_csv(file_path)
+dataset = pd.read_csv(file_path, nrows=1)
 dataset = dataset.loc[:, ~dataset.columns.str.contains('^Unnamed')]
 
 # ── AWS credentials from Streamlit secrets ────────────────────────────────────
