@@ -1,6 +1,5 @@
 streamlit
 boto3
-sagemaker<3.0.0
 scikit-learn
 pandas
 numpy
