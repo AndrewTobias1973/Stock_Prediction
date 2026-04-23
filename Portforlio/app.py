@@ -26,7 +26,7 @@ if project_root not in sys.path:
     sys.path.append(project_root)
 
 # Load X_train baseline from Portfolio folder (uploaded to GitHub)
-file_path = os.path.join(project_root, 'Portfolio/X_train.csv')
+file_path = os.path.join(project_root, 'Portforlio/X_train.csv')
 dataset = pd.read_csv(file_path)
 dataset = dataset.loc[:, ~dataset.columns.str.contains('^Unnamed')]
 
