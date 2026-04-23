@@ -13,7 +13,7 @@ import boto3
 import json as _json
 
 from sklearn.pipeline import Pipeline
-import shap
+
 
 from joblib import dump, load
 
@@ -109,6 +109,7 @@ def call_model_api(input_df):
 
 # ── SHAP explanation ──────────────────────────────────────────────────────────
 def display_explanation(input_df, session, aws_bucket):
+    import shap 
     explainer_name = MODEL_INFO["explainer"]
     explainer = load_shap_explainer(
         session, aws_bucket,
