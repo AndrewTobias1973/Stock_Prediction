@@ -178,6 +178,9 @@ if submitted:
         colour = "red" if res == "Fraud" else "green"
         st.markdown(f"### Prediction: :{colour}[{res}]")
         st.metric("Result", res)
-        display_explanation(original, session, aws_bucket)
+        try:
+            display_explanation(original, session, aws_bucket)
+        except Exception as e:
+            st.warning(f"SHAP explanation unavailable: {str(e)}")
     else:
         st.error(res)
